@@ -5,7 +5,7 @@ function Billing({ src, width, height }) {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <p className={`${styles.paragraph} 
-       font-medium object-top my-20 text-7xl`}>
+       font-medium object-top my-10 md:text-7xl sm:text-5xl`}>
         Apprendre a jouer HexGame
       </p>
     <video className="max-w-full rounded-full custom-gradient-shadow" width={width} height={height} controls autoPlay>
