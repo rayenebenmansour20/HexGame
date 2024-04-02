@@ -33,10 +33,17 @@ import hexgamelogo2 from './hexgamelogo1.png'
 import video1 from './video1.mp4'
 import titrelogo from './titrelogo.png'
 import howtoplayhex from './howtoplayhex.mp4'
-
+import H1 from './H1.jpg'
+import H2 from './H2.jpg'
+import H3 from './H3.jpg'
+import NASH from './NASH.jpg'
 
 
 export {
+  H1,
+  H2,
+  H3,
+  NASH,
   boucle,
   howtoplayhex,
   titrelogo,

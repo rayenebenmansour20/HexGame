@@ -1,12 +1,8 @@
 import styles from "./style";
-import { Navbar,Billing,Business,FeedBackCard,Button,GetStarted,Hero,Testimonials,Footer,Clients,CTA,Stats  } from "./components/index";
+import { Navbar,Billing,Business,Hero,Footer,Animations  } from "./components/index";
 import { howtoplayhex, video1 } from "./assets";
 
-const videos = [
-  { src: 'video1.mp4', width: 640, height: 360 },
-  { src: 'video2.mp4', width: 640, height: 360 },
-  { src: 'video3.mp4', width: 640, height: 360 }
-];
+
 
 const App = () => (
     <div className="bg-primary w-full overflow-hidden">
@@ -25,12 +21,9 @@ const App = () => (
       <div className={`bg-primary ${styles.paddingX} ${styles.flexStart}`}>
         <div className={`${styles.boxWidth}`}>
           <Business/>
+          <Animations/>
           <Billing src={howtoplayhex} width={640}
            height={200}/>
-          <Testimonials/>
-          <FeedBackCard/>
-          <Clients/>
-          <CTA/>
           <Footer/>
         </div>
       </div> 
