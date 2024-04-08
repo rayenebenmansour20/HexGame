@@ -1,12 +1,15 @@
 import { people01, people02, people03, facebook, instagram, linkedin, twitter, airbnb, binance, coinbase, dropbox, send, shield, star  } from "../assets";
+import {Link} from 'react-router-dom'
+import App from "../App";
 
 export const navLinks = [
   {
     id: "Acceuil",
     title: "Acceuil",
+    
   },
   {
-    id: "A Propos",
+    id: "APropos",
     title: "A Propos",
   },
   {

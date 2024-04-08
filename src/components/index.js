@@ -8,7 +8,6 @@ import Footer from "./Footer";
 import Button from "./Button";
 import Animations from "./Animations";
 
-
 export {
     Navbar,
     Animations,

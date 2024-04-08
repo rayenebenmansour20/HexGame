@@ -1,0 +1,216 @@
+
+/* CSS */
+.button-29 {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-29:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button-29:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-29:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+  .checkbox-wrapper-55 input[type="checkbox"] {
+      visibility: hidden;
+      display: none;
+    }
+  
+    .checkbox-wrapper-55 *,
+    .checkbox-wrapper-55 ::after,
+    .checkbox-wrapper-55 ::before {
+      box-sizing: border-box;
+    }
+  
+    .checkbox-wrapper-55 .rocker {
+      display: inline-block;
+      position: relative;
+      /*
+      SIZE OF SWITCH
+      ==============
+      All sizes are in em - therefore
+      changing the font-size here
+      will change the size of the switch.
+      See .rocker-small below as example.
+      */
+      font-size: 2em;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      color: #888;
+      width: 7em;
+      height: 4em;
+      overflow: hidden;
+      border-bottom: 0.5em solid #eee;
+    }
+  
+    .checkbox-wrapper-55 .rocker-small {
+      font-size: 0.75em;
+    }
+  
+    .checkbox-wrapper-55 .rocker::before {
+      content: "";
+      position: absolute;
+      top: 0.5em;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #999;
+      border: 0.5em solid #eee;
+      border-bottom: 0;
+    }
+  
+    .checkbox-wrapper-55 .switch-left,
+    .checkbox-wrapper-55 .switch-right {
+      cursor: pointer;
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 2.5em;
+      width: 3em;
+      transition: 0.2s;
+      user-select: none;
+    }
+  
+    .checkbox-wrapper-55 .switch-left {
+      height: 2.4em;
+      width: 2.75em;
+      left: 0.85em;
+      bottom: 0.4em;
+      background-color: #ddd;
+      transform: rotate(15deg) skewX(15deg);
+    }
+  
+    .checkbox-wrapper-55 .switch-right {
+      right: 0.5em;
+      bottom: 0;
+      background-color: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+      color: #fff;
+    }
+  
+    .checkbox-wrapper-55 .switch-left::before,
+    .checkbox-wrapper-55 .switch-right::before {
+      content: "";
+      position: absolute;
+      width: 0.4em;
+      height: 2.45em;
+      bottom: -0.45em;
+      background-color: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+      transform: skewY(-65deg);
+    }
+  
+    .checkbox-wrapper-55 .switch-left::before {
+      left: -0.4em;
+    }
+  
+    .checkbox-wrapper-55 .switch-right::before {
+      right: -0.375em;
+      background-color: transparent;
+      transform: skewY(65deg);
+    }
+  
+    .checkbox-wrapper-55 input:checked + .switch-left {
+      background-color: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+      color: #fff;
+      bottom: 0px;
+      left: 0.5em;
+      height: 2.5em;
+      width: 3em;
+      transform: rotate(0deg) skewX(0deg);
+    }
+  
+    .checkbox-wrapper-55 input:checked + .switch-left::before {
+      background-color: transparent;
+      width: 3.0833em;
+    }
+  
+    .checkbox-wrapper-55 input:checked + .switch-left + .switch-right {
+      background-color: #ddd;
+      color: #888;
+      bottom: 0.4em;
+      right: 0.8em;
+      height: 2.4em;
+      width: 2.75em;
+      transform: rotate(-15deg) skewX(-15deg);
+    }
+  
+    .checkbox-wrapper-55 input:checked + .switch-left + .switch-right::before {
+      background-color: #ccc;
+    }
+  
+    /* Keyboard Users */
+    .checkbox-wrapper-55 input:focus + .switch-left {
+      color: #333;
+    }
+  
+    .checkbox-wrapper-55 input:checked:focus + .switch-left {
+      color: #fff;
+    }
+  
+    .checkbox-wrapper-55 input:focus + .switch-left + .switch-right {
+      color: #fff;
+    }
+  
+    .checkbox-wrapper-55 input:checked:focus + .switch-left + .switch-right {
+      color: #333;
+    }
+
+    .hexagon {
+      stroke: black; /* Couleur de la bordure */
+      stroke-width: 2; /* Largeur de la bordure */
+  }
+  
+  .hexagon.red {
+      fill: #FF0027; /* Couleur rouge pour le joueur 0 */
+  }
+  
+  .hexagon.blue {
+      fill: #009AAC; /* Couleur bleue pour le joueur 1 */
+  }
+  
+  .hexagon.selected {
+      fill: #AA00FF; /* Couleur pour la case sélectionnée */
+  }
+  
+
+#acceuilbutton{
+   left :300px;
+   right:300px;
+   margin-bottom: 20px;
+}
+

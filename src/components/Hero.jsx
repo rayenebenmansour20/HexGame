@@ -1,7 +1,6 @@
 import styles from "../style"
 import {discount,gamelogo,robot,robot1} from "../assets"
 import GetStarted from './GetStarted'
-import Stats from './Stats'
 
 
 const Hero = () => {

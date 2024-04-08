@@ -13,6 +13,8 @@ const styles = {
   
     marginX: "sm:mx-16 mx-6",
     marginY: "sm:my-16 my-6",
+    Canva:"position:absolute; top:0px; left:20px",
+    divproperty:"position:absolute; top:250px; left:20px"
   };
   
   export const layout = {
