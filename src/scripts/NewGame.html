@@ -4,11 +4,6 @@
     <meta charset="utf-8">
     <title>Hex</title>
     <link rel="stylesheet" href="button.css">
-    <script>
-        function returnHome() {
-            window.location.href = "/"; // Rediriger vers la racine du site
-        }
-    </script>
     <style>
         #canvas-container {
             position: relative;
@@ -21,18 +16,18 @@
             text-align: center;
             margin-top: 10px;
         }
-      
     </style>
 </head>
 <body onload="load()">
     <div id="canvas-container">
-        <button class="button-29" id="acceuilbutton" onClick="returnHome()" >Revenir a l'acceuil</button>
+        <button class="button-29" id="acceuilbutton" onClick="returnHome()">Revenir a l'acceuil</button>
         <canvas style="background-color: whitesmoke; border-radius: 10px;" width="840" height="600" id="output">Canvas not supported...</canvas>
         <div id="button-container">
+            <input class="button-29" type="button" onClick="showTree()" value="Afficher l'arbre de recherche"><br>
             <input class="button-29" type="button" onClick="init()" value="Nouvelle Partie"><br>
             <br><div class="checkbox-wrapper-55">
               <label class="rocker rocker-small">
-                <input id="mp" type="checkbox" onClick="chgMP()" >
+                <input id="mp" type="checkbox" onClick="chgMP()">
                 <span class="switch-left">NON</span>
                 <span class="switch-right">IA</span>
               </label>
@@ -40,7 +35,92 @@
             <br><input class="button-29" type="button" onClick="undo()" value="Annuler">
         </div>
     </div>
+    <div id="tree-dialog"></div> <!-- Balise div pour afficher le composant ArbreDialog -->
     <script src="ia.js"></script>
     <script src="display.js"></script>
+    <script src="../../node_modules/react/umd/react.development.js"></script>
+    <script src="../../node_modules/react-dom/umd/react-dom.development.js"></script>
+    <script src="./modules/tree.js"></script>
+    <script>
+        function returnHome() {
+            window.location.href = "/"; // Rediriger vers la racine du site
+        }
+    
+        // Définissez une fonction pour créer un élément de liste pour chaque nœud de l'arbre
+        function renderTreeNode(node) {
+            const li = document.createElement('li');
+            li.textContent = `Profondeur: ${node.getDepth()}, État: ${node.getState()}`;
+            
+            const ul = document.createElement('ul');
+            node.getChildren().forEach(child => {
+                const childLi = renderTreeNode(child);
+                ul.appendChild(childLi);
+            });
+    
+            li.appendChild(ul);
+            return li;
+        }
+    
+        // Définissez une fonction pour afficher le dialogue avec l'arbre de recherche
+        function showTree() {
+            // Obtenez une référence à la div où afficher le dialogue
+            const treeDialogContainer = document.getElementById('tree-dialog');
+    
+            // Créez un arbre d'exemple
+            const rootNode = new TreeNode("root", 0);
+            const child1 = new TreeNode("child1", 1);
+            const child2 = new TreeNode("child2", 1);
+            const grandchild1 = new TreeNode("grandchild1", 2);
+            const grandchild2 = new TreeNode("grandchild2", 2);
+    
+            // Ajoutez les enfants au nœud racine
+            rootNode.addChild(child1);
+            rootNode.addChild(child2);
+    
+            // Ajoutez les petits-enfants au premier enfant
+            child1.addChild(grandchild1);
+            child1.addChild(grandchild2);
+    
+            // Créez le dialogue
+            const dialog = document.createElement('div');
+            dialog.classList.add('dialog');
+    
+            // Titre du dialogue
+            const dialogTitle = document.createElement('div');
+            dialogTitle.textContent = 'Arbre de recherche';
+            dialog.appendChild(dialogTitle);
+    
+            // Contenu du dialogue
+            const dialogContent = document.createElement('div');
+            dialogContent.classList.add('content');
+            const ul = document.createElement('ul');
+            ul.appendChild(renderTreeNode(rootNode));
+            dialogContent.appendChild(ul);
+            dialog.appendChild(dialogContent);
+    
+            // Actions du dialogue
+            const dialogActions = document.createElement('div');
+            dialogActions.classList.add('actions');
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'Fermer';
+            closeButton.addEventListener('click', closeTree);
+            dialogActions.appendChild(closeButton);
+            dialog.appendChild(dialogActions);
+    
+            // Ajoutez le dialogue à la page
+            treeDialogContainer.appendChild(dialog);
+        }
+
+        // Définissez une fonction pour fermer l'arbre de recherche
+function closeTree() {
+    const treeDialogContainer = document.getElementById('tree-dialog');
+    const dialog = treeDialogContainer.querySelector('.dialog');
+    if (dialog) {
+        treeDialogContainer.removeChild(dialog);
+    }
+}
+
+    </script>
+    
 </body>
 </html>
