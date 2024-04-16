@@ -29,7 +29,9 @@ const Footer = () => (
                 <li key={link.name} className={`font-poppins font-normal text-[16px] leading-[24px]
                 text-dimWhite hover:text-secondary cursor-pointer
                 ${index !== footerLink.links.length - 1 ? 'mb-4' : 'mb-0'}`}>
-                    {link.name}
+                <a href={link.link} className="text-dimWhite hover:text-secondary">
+                  {link.name}
+                </a>
                 </li>
               ))}
             </ul>
@@ -46,12 +48,15 @@ const Footer = () => (
         </p>
         <div className="flex flex-row md:mt-0 mt-6">
           {socialMedia.map((social,index)=>(
-              <img 
-              key={social.id}
-              src={social.icon} 
-              alt={social.id}
-              className={`w-[21px] h-[21px] object-contain
-              cursor-pointer hover: ${index !== socialMedia.length - 1 ? 'mr-6' : 'mr-0'}`} />
+              <a key={social.id} href={social.link} target="_blank" rel="noopener noreferrer">
+              <img
+                src={social.icon}
+                alt={social.id}
+                className={`w-[21px] h-[21px] object-contain cursor-pointer hover: ${
+                  index !== socialMedia.length - 1 ? 'mr-6' : 'mr-0'
+                }`}
+              />
+            </a>
           ))}
 
         </div>

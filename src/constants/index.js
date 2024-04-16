@@ -50,21 +50,21 @@ export const footerLinks = [
   {
     title: "Liens Utiles",
     links: [
-      {
-        name: "Videos",
-        link: "https://www.hoobank.com/content/",
-      },
+      // {
+      //   name: "Acceuil",
+      //   link: "http://localhost:5173/#Acceuil",
+      // },
       {
         name: "Régles du jeu",
-        link: "https://www.hoobank.com/how-it-works/",
+        link: "http://localhost:5173/#Régles",
       },
       {
         name: "Démo",
-        link: "https://www.hoobank.com/create/",
+        link: "http://localhost:5173/#Démo",
       },
       {
         name: "A Propos",
-        link: "https://www.hoobank.com/explore/",
+        link: "http://localhost:5173/#APropos",
       },
       
     ],
@@ -88,19 +88,19 @@ export const footerLinks = [
     links: [
       {
         name: "R.BENMANSOUR",
-        link: "https://www.hoobank.com/our-partner/",
+        link: "https://www.linkedin.com/in/rayenebenmansour/",
       },
       {
         name: "L.AMARA",
-        link: "https://www.hoobank.com/become-a-partner/",
+        link: "https://www.linkedin.com/in/lounes-amara-216305231/",
       },
       {
         name: "Z.TOUBAL",
-        link: "https://www.hoobank.com/become-a-partner/",
+        link: "https://www.linkedin.com/in/zine-eddine-toubal-518a0a176/",
       },
       {
         name: "A.OUDIA",
-        link: "https://www.hoobank.com/become-a-partner/",
+        link: "https://www.linkedin.com/in/abdelwaheb-ouadia-386321214/",
       },
 
     ],
