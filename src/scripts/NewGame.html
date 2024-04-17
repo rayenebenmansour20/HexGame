@@ -80,73 +80,76 @@
             window.location.href = "/"; // Rediriger vers la racine du site
         }
 
-        // Définissez une fonction pour afficher le dialogue avec l'arbre de recherche
-        function showTreeDialog() {
-            console.log("La fonction showTreeDialog() est appelée.");
-            const treeDialog = document.getElementById('tree-dialog');
-            treeDialog.style.display = 'block';
-            const treeGraphContainer = document.getElementById('tree-graph');
+// Dans la fonction showTreeDialog, créez un arbre d'exemple avec des valeurs d'heuristique spécifiques
+function showTreeDialog() {
+    console.log("La fonction showTreeDialog() est appelée.");
+    const treeDialog = document.getElementById('tree-dialog');
+    treeDialog.style.display = 'block';
+    const treeGraphContainer = document.getElementById('tree-graph');
 
-            // Créez un arbre d'exemple
-            const rootNode = new TreeNode("root", 0);
-            const child1 = new TreeNode("child1", 1);
-            const child2 = new TreeNode("child2", 1);
-            const grandchild1 = new TreeNode("grandchild1", 2);
-            const grandchild2 = new TreeNode("grandchild2", 2);
+    // Créez un arbre d'exemple avec des heuristiques spécifiques
+    const rootNode = new TreeNode("root", 0, 0);
+    const child1 = new TreeNode("child1", 1, 10);
+    const child2 = new TreeNode("child2", 1, 20);
+    const grandchild1 = new TreeNode("grandchild1", 2, 5);
+    const grandchild2 = new TreeNode("grandchild2", 2, 15);
 
-            // Ajoutez les enfants au nœud racine
-            rootNode.addChild(child1);
-            rootNode.addChild(child2);
+    // Ajoutez les enfants au nœud racine
+    rootNode.addChild(child1);
+    rootNode.addChild(child2);
 
-            // Ajoutez les petits-enfants au premier enfant
-            child1.addChild(grandchild1);
-            child1.addChild(grandchild2);
+    // Ajoutez les petits-enfants au premier enfant
+    child1.addChild(grandchild1);
+    child1.addChild(grandchild2);
 
-            // Dessinez l'arbre
-            drawTree(rootNode, treeGraphContainer);
-        }
+    // Dessinez l'arbre avec les heuristiques
+    drawTree(rootNode, treeGraphContainer);
+}
 
-        function drawTree(rootNode, container) {
-            const margin = { top: 20, right: 90, bottom: 30, left: 90 };
-            const svgWidth = "100%";
-            const svgHeight = "100%";
 
-            const svg = d3.select(container)
-                .append("svg")
-                .attr("width", svgWidth)
-                .attr("height", svgHeight)
-                .append("g")
-                .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+// Fonction pour dessiner l'arbre
+function drawTree(rootNode, container) {
+    const margin = { top: 20, right: 90, bottom: 30, left: 90 };
+    const svgWidth = "100%";
+    const svgHeight = "100%";
 
-            const treeLayout = d3.tree().size([container.offsetHeight - margin.top - margin.bottom, container.offsetWidth - margin.left - margin.right]);
-            const root = d3.hierarchy(rootNode);
-            treeLayout(root);
+    const svg = d3.select(container)
+        .append("svg")
+        .attr("width", svgWidth)
+        .attr("height", svgHeight)
+        .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-            svg.selectAll(".link")
-                .data(root.links())
-                .enter()
-                .append("path")
-                .attr("class", "link")
-                .attr("d", d3.linkVertical()
-                .x(d => d.x)
-                .y(d => d.y));
+    const treeLayout = d3.tree().size([container.offsetHeight - margin.top - margin.bottom, container.offsetWidth - margin.left - margin.right]);
+    const root = d3.hierarchy(rootNode);
+    treeLayout(root);
 
-            const nodes = svg.selectAll(".node")
-                .data(root.descendants())
-                .enter()
-                .append("g")
-                .attr("class", "node")
-                .attr("transform", d => "translate(" + d.x + "," + d.y + ")");
+    svg.selectAll(".link")
+        .data(root.links())
+        .enter()
+        .append("path")
+        .attr("class", "link")
+        .attr("d", d3.linkVertical()
+            .x(d => d.x)
+            .y(d => d.y));
 
-            nodes.append("circle")
-                .attr("r", 5);
+    const nodes = svg.selectAll(".node")
+        .data(root.descendants())
+        .enter()
+        .append("g")
+        .attr("class", "node")
+        .attr("transform", d => "translate(" + d.x + "," + d.y + ")");
 
-            nodes.append("text")
-                .attr("dy", 3)
-                .attr("x", d => d.children ? -8 : 8)
-                .style("text-anchor", d => d.children ? "end" : "start")
-                .text(d => d.data.getState());
-        }
+    nodes.append("circle")
+        .attr("r", 5);
+
+    nodes.append("text")
+        .attr("dy", 3)
+        .attr("x", d => d.children ? -8 : 8)
+        .style("text-anchor", d => d.children ? "end" : "start")
+        .text(d => d.data.getFullRepresentation()); // Utilisez la méthode pour obtenir la représentation complète
+}
+
 
         // Fonction pour fermer le dialogue de l'arbre
         function closeTreeDialog() {
