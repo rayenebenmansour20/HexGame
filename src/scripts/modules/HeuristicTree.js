@@ -8,5 +8,3 @@ class HeuristicTree {
         return this.root;
     }
 }
-
-export default HeuristicTree;

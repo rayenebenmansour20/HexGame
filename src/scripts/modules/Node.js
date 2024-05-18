@@ -51,4 +51,3 @@ class Node {
         return this.parent;
     }
 }
-export default Node;

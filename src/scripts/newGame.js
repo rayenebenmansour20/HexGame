@@ -1,4 +1,3 @@
-
 function returnHome() {
     window.location.href = "/"; // Rediriger vers la racine du site
 }
