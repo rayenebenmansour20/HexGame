@@ -1,3 +1,4 @@
+
 function returnHome() {
     window.location.href = "/"; // Rediriger vers la racine du site
 }
@@ -83,7 +84,7 @@ function drawTree(rootNode, container) {
         .attr("dy", 3)
         .attr("x", d => d.children ? -8 : 8)
         .style("text-anchor", d => d.children ? "end" : "start")
-        .text(d => d.data.getFullRepresentation()); // Utilisez la méthode pour obtenir la représentation complète
+        .text(d => d.data.getValue()); // Affiche la valeur du nœud
 }
 
 // Fonction pour fermer le dialogue de l'arbre
@@ -93,3 +94,4 @@ function closeTreeDialog() {
     const treeGraphContainer = document.getElementById('tree-graph');
     treeGraphContainer.innerHTML = ''; // Effacez le contenu pour fermer l'arbre
 }
+
